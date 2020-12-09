@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5",
+    "sequelize-auto": "^0.7.5",
+    "sqlite3": "^5.0.0",
+    "sqlstring": "^2.3.2"
   },
   "devDependencies": {
     "eslint": "^7.13.0",
