@@ -12,7 +12,7 @@ const router = Router();
 
 // Route to get the saved jobs for later.
 router.get("/saved", (req, res) => {
-  db.all(`SELECT * FROM "savedjobs";`, (err, rows) => {
+  db.all('SELECT * FROM "savedjobs";', (err, rows) => {
     // Send status code 500 if there was an error
     if (err) {
       console.error(err);
