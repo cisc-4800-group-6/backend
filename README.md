@@ -6,6 +6,7 @@ Tech Stack:
 
 - Node.js
 - Express
-- Sequelize ORM
 - SQLite
+- Docker
+- Azure Container Registry
 - Azure App Service

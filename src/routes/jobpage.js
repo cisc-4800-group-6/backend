@@ -2,6 +2,7 @@ const { Router } = require("express");
 const sqlite3 = require("sqlite3");
 const { escapeSqlString } = require("../util");
 
+// Initialize database connection
 const db = new sqlite3.Database(
   process.env.NODE_ENV === "production"
     ? "/app/nycjobs.sqlite"
@@ -10,7 +11,7 @@ const db = new sqlite3.Database(
 
 const router = Router();
 
-// Get data for job page
+// Route to get data for each individual job page.
 router.get("/:id", (req, res) => {
   const id = escapeSqlString(req.params.id);
 
@@ -29,7 +30,7 @@ router.get("/:id", (req, res) => {
   );
 });
 
-// Save job
+// Route to save a job for later.
 router.post("/:id/save", (req, res) => {
   const id = escapeSqlString(req.params.id);
   const businessTitle = escapeSqlString(req.body["Business Title"]);
@@ -50,7 +51,7 @@ router.post("/:id/save", (req, res) => {
   );
 });
 
-// Unsave job
+// Route to unsave a saved job.
 router.delete("/:id/save", (req, res) => {
   const id = escapeSqlString(req.params.id);
 
@@ -66,7 +67,7 @@ router.delete("/:id/save", (req, res) => {
   });
 });
 
-// Check if a job is saved
+// Route to check if a job is saved.
 router.get("/:id/saved", (req, res) => {
   const id = escapeSqlString(req.params.id);
 
@@ -79,16 +80,14 @@ router.get("/:id/saved", (req, res) => {
 
     // Otherwise, send result
     if (rows.length > 0) {
-      console.log("Job is saved");
       res.status(200).send(true);
     } else {
-      console.log("Job is unsaved");
       res.status(200).send(false);
     }
   });
 });
 
-// Delete job
+// Route to delete a job posting from the database.
 router.delete("/:id", (req, res) => {
   const id = escapeSqlString(req.params.id);
 
