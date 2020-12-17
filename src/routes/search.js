@@ -1,6 +1,6 @@
 const { Router } = require("express");
-const SqlString = require("sqlstring");
 const sqlite3 = require("sqlite3");
+const { escapeSqlString } = require("../util");
 
 const db = new sqlite3.Database(
   process.env.NODE_ENV === "production"
@@ -13,7 +13,7 @@ const router = Router();
 // Search for first 50 jobs
 router.get("/search", (req, res) => {
   // Replace both apostrophes with nothing
-  const query = SqlString.escape(req.query.q).replace("'", "").replace("'", "");
+  const query = escapeSqlString(req.query.q);
 
   db.all(
     `SELECT * FROM "jobs" WHERE "Business Title" LIKE "%${query}%" LIMIT 50;`,

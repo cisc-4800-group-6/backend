@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const baseJobsRoute = require("./routes/jobs");
 const searchRoute = require("./routes/search");
-const jobPageRoute = require("./routes/job");
+const jobPageRoute = require("./routes/jobpage");
+const savedJobsRoute = require("./routes/savedjobs");
 
 const PORT = 8080;
 
@@ -20,6 +21,7 @@ app.use(cors());
 // Initialize routes
 app.use("/jobs", baseJobsRoute);
 app.use("/jobs", searchRoute);
+app.use("/jobs", savedJobsRoute);
 app.use("/job", jobPageRoute);
 
 // Start listening for API calls
