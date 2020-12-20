@@ -13,7 +13,7 @@ const router = Router();
 
 // Route to get featured jobs.
 router.get("/", (req, res) => {
-  db.all('SELECT * FROM "jobs" LIMIT 50;', (err, rows) => {
+  db.all('SELECT * FROM "jobs";', (err, rows) => {
     // Send status code 500 if there was an error
     if (err) {
       console.error(err);
