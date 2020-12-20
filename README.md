@@ -1,6 +1,7 @@
 # NYC Jobs Finder Backend - CISC 4800 Group 6
 
-The backend for NYC Jobs Finder.
+The backend for NYC Jobs Finder.\
+Accompanying frontend: [https://github.com/cisc-4800-group-6/frontend](https://github.com/cisc-4800-group-6/frontend)
 
 Tech Stack:
 
